@@ -25,7 +25,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe sections
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.projects, .about');
+    const sections = document.querySelectorAll('.projects, .skill');
     sections.forEach((section) => {
         observer.observe(section);
     });
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const slideObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            const sections = document.querySelectorAll('.hero, .skills, .projects, .contact');
+            const sections = document.querySelectorAll('.hero, .skill, .projects, .contact');
             const currentIndex = Array.from(sections).indexOf(entry.target);
             
             // Hero pakai fade-up
@@ -191,7 +191,7 @@ const slideObserver = new IntersectionObserver((entries) => {
 const cardObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            const cards = entry.target.querySelectorAll('.about-card, .project-card');
+            const cards = entry.target.querySelectorAll('.skill-card, .project-card');
             
             cards.forEach((card, index) => {
                 setTimeout(() => {
@@ -206,7 +206,7 @@ const cardObserver = new IntersectionObserver((entries) => {
     threshold: 0.1
 });
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.hero, .skills, .projects, .contact');
+    const sections = document.querySelectorAll('.hero, .skill, .projects, .contact');
     sections.forEach((section) => {
         section.style.opacity = '0'; // Hide dulu
         slideObserver.observe(section);

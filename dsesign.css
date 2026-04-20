@@ -236,25 +236,25 @@ body {
    ABOUT SECTION
    ============================================ */
 
-.skills {
+.skill {
     padding: 5rem 0;
     background-color: var(--white);
 }
 
-.skills h2 {
+.skill h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
     color: var(--text-color);
 }
 
-.skills-grid {
+.skill-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.skills-card {
+.skill-card {
     background-color: var(--bg-light);
     padding: 2rem;
     border-radius: 10px;
@@ -263,27 +263,27 @@ body {
     transition: transform 0.3s ease;
 }
 
-.skills-card:hover {
+.skill-card:hover {
     transform: translateY(-5px);
 }
 
-.skills-card h3 {
+.skill-card h3 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
 }
 
-.skills-card ul {
+.skill-card ul {
     list-style: none;
 }
 
-.skills-card li {
+.skill-card li {
     padding: 0.5rem 0;
     color: var(--text-light);
     border-bottom: 1px solid var(--border-color);
 }
 
-.skills-card li:last-child {
+.skill-card li:last-child {
     border-bottom: none;
 }
 
@@ -474,7 +474,7 @@ body {
 }
 
 /* Hide sections sebelum animasi jalan */
-.skills, .projects, .contact {
+.skill, .projects, .contact {
     opacity: 0;
 }
 
@@ -524,12 +524,12 @@ body {
     }
 
     .projects-grid,
-    .skills-grid {
+    .skill-grid {
         grid-template-columns: 1fr;
     }
 
     .projects h2,
-    .skills h2,
+    .skill h2,
     .contact h2 {
         font-size: 2rem;
     }
@@ -564,6 +564,9 @@ body {
     /* Navbar mobile */
     .navbar .container {
         flex-wrap: wrap;
+        justify-content: space-between; 
+        align-items: center;
+        position: relative; 
     }
     
     .hamburger {
@@ -609,16 +612,16 @@ body {
 
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: right;
     }
 
     .projects-grid,
-    .skills-grid {
+    .skill-grid {
         grid-template-columns: 1fr;
     }
 
     .projects h2,
-    .skills h2,
+    .skill h2,
     .contact h2 {
         font-size: 2rem;
     }
