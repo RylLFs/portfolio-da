@@ -111,8 +111,6 @@ function typingEffect() {
     const titles = [
     "Eril",
     "a Data Analyst",
-    "an Insight Generator",
-    "an Pattern Seeker",
 ];
     const typingElement = document.querySelector('.hero h1');
     
@@ -164,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const slideObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            const sections = document.querySelectorAll('.hero, .about, .projects, .contact');
+            const sections = document.querySelectorAll('.hero, .skills, .projects, .contact');
             const currentIndex = Array.from(sections).indexOf(entry.target);
             
             // Hero pakai fade-up
@@ -208,9 +206,31 @@ const cardObserver = new IntersectionObserver((entries) => {
     threshold: 0.1
 });
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.hero, .about, .projects, .contact');
+    const sections = document.querySelectorAll('.hero, .skills, .projects, .contact');
     sections.forEach((section) => {
         section.style.opacity = '0'; // Hide dulu
         slideObserver.observe(section);
     });
+});
+
+// Hamburger menu toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu saat link diklik
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
 });

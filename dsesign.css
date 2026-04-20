@@ -37,6 +37,10 @@ body {
    NAVIGATION
    ============================================ */
 
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
 .navbar {
     background-color: var(--white);
     box-shadow: var(--shadow);
@@ -75,6 +79,37 @@ body {
     color: var(--primary-color);
 }
 
+/* Hamburger button - hidden by default */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger animation saat active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -201,25 +236,25 @@ body {
    ABOUT SECTION
    ============================================ */
 
-.about {
+.skills {
     padding: 5rem 0;
     background-color: var(--white);
 }
 
-.about h2 {
+.skills h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
     color: var(--text-color);
 }
 
-.about-grid {
+.skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.about-card {
+.skills-card {
     background-color: var(--bg-light);
     padding: 2rem;
     border-radius: 10px;
@@ -228,27 +263,27 @@ body {
     transition: transform 0.3s ease;
 }
 
-.about-card:hover {
+.skills-card:hover {
     transform: translateY(-5px);
 }
 
-.about-card h3 {
+.skills-card h3 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
 }
 
-.about-card ul {
+.skills-card ul {
     list-style: none;
 }
 
-.about-card li {
+.skills-card li {
     padding: 0.5rem 0;
     color: var(--text-light);
     border-bottom: 1px solid var(--border-color);
 }
 
-.about-card li:last-child {
+.skills-card li:last-child {
     border-bottom: none;
 }
 
@@ -439,7 +474,7 @@ body {
 }
 
 /* Hide sections sebelum animasi jalan */
-.about, .projects, .contact {
+.skills, .projects, .contact {
     opacity: 0;
 }
 
@@ -489,12 +524,12 @@ body {
     }
 
     .projects-grid,
-    .about-grid {
+    .skills-grid {
         grid-template-columns: 1fr;
     }
 
     .projects h2,
-    .about h2,
+    .skills h2,
     .contact h2 {
         font-size: 2rem;
     }
@@ -522,5 +557,69 @@ body {
     .btn {
         padding: 0.6rem 1.5rem;
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar mobile */
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+    
+    .hamburger {
+        display: flex; /* Show hamburger di mobile */
+    }
+    
+    .nav-links {
+        display: none; /* Hide menu by default */
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        background-color: var(--white);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: var(--shadow);
+        padding: 1rem 0;
+    }
+    
+    .nav-links.active {
+        display: flex; /* Show saat hamburger diklik */
+    }
+    
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    /* Existing mobile styles */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects h2,
+    .skills h2,
+    .contact h2 {
+        font-size: 2rem;
     }
 }
